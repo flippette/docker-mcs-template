@@ -1,0 +1,19 @@
+version: 3.8
+
+services:
+  mcs:
+    image: john_doe/mcs:latest
+    tty: true
+    stdin_open: true
+    ports:
+      - 25565:25565
+      # - 25575:25575      # !!! DO NOT EXPOSE THIS PORT UNLESS `RCON_PASSWORD` IS SET IN `environment` !!!
+    environment:
+      EULA: TRUE
+      TYPE: PAPER
+      # RCON_PASSWORD: your_password_here
+    volumes:
+      - mcs-data:/data
+
+volumes:
+  mcs-data:
